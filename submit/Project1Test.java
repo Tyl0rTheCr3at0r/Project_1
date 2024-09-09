@@ -1,6 +1,5 @@
 import org.junit.*;
 import static org.junit.Assert.*;
-
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.function.*;
@@ -9,6 +8,7 @@ import java.util.function.*;
 public class Project1Test 
 {
 
+    private CollectionUtilities<Integer> runner;
     /**
      * runner - known as the "test runner" object, this is the
      * object that you will use in testing. You will use this
@@ -29,22 +29,60 @@ public class Project1Test
     @Before
     public void setup()
     {
-        // create some data for testing, then
-        // initialize your runner object.
-        //
-        // runner = new Project1<String>( pass some data );
+        ArrayList<Integer> testNums = new ArrayList<Integer>();
+        testNums.add(34567);
+        testNums.add(2839);
+        testNums.add(4567);
+        testNums.add(98765);
+        testNums.add(87);
+        testNums.add(9);
+        testNums.add(9);
+        testNums.add(2);
+        testNums.add(12345678);
+        testNums.add(98);
+
+        runner = new Project1<Integer>(testNums);
+
     }
 
     /**
-     * testingOne() 
+     * Tests the method findSmallest().
      */
     @Test
-    public void testingOne()
+    public void testingFindSmallest()
     {
-        // do testing here
+        int smallest = runner.findSmallest();
+        assertEquals(2, smallest);
     }
 
-    // Add more tests here. Remember, the goal is to
-    // test every method and to execute every line of code
-    // in your Project1 class.
+    /**
+     * Tests the method findLargest().
+     */
+    @Test
+    public void testingFindLargest()
+    {
+        int largest = runner.findLargest();
+        assertEquals(12345678, largest);
+    }
+
+    /**
+     * Tests the method hasDuplicates().
+     */
+    @Test
+    public void testingHasDuplicates()
+    {
+        boolean hasDuplicate = runner.hasDuplicates();
+        assertTrue(hasDuplicate);
+    }
+
+    /**
+     * Tests the method findOneThat().
+     */
+    @Test
+    public void testingHasOneThat()
+    {
+        
+    }
+
+    
 }
