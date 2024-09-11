@@ -79,8 +79,16 @@ public class Project1<E extends Comparable<E>>
 
     public AbstractList <E> filterList(Predicate <E> p)
     {
-        ArrayList<E> buzzLightYear = new ArrayList<E>();
-        return buzzLightYear;
+        ArrayList<E> allValues = new ArrayList<E>();
+        for (E item : collection)
+        {
+            if(p.test(item))
+            {
+                allValues.add(item);
+            }
+        }
+
+        return allValues;
     }
 }
 

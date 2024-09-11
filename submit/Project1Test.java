@@ -2,6 +2,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.AbstractList;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.function.*;
 
 
@@ -79,9 +80,35 @@ public class Project1Test
      * Tests the method findOneThat().
      */
     @Test
-    public void testingHasOneThat()
+    public void testingFindOneThat()
     {
-        
+        Predicate<Integer> p = i -> i < 10;
+        Project1<Integer> specialRunner = (Project1<Integer>) runner;
+
+        int item = specialRunner.findOneThat(p);
+
+        assertEquals(9, item);
+    }
+    
+    /**
+     * Tests the method filterList().
+     */
+    @Test
+    public void testingFilterList()
+    {
+        Predicate<Integer> p = i -> i % 2 == 0;
+
+
+        Project1<Integer> specialRunner = (Project1<Integer>) runner;
+
+        AbstractList<Integer> item = specialRunner.filterList(p);
+
+        ArrayList<Integer> testNums = new ArrayList<Integer>();
+        testNums.add(2);
+        testNums.add(12345678);
+        testNums.add(98);
+
+        assertEquals(testNums, item);
     }
 
     
