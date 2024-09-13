@@ -57,6 +57,15 @@ public class Project1Test
     }
 
     /**
+     * Testing to make sure the object is not null when running the findSmallest() method.
+     */
+    @Test
+    public void testingFindSmallestNotNull()
+    {
+        assertNotNull(runner.findSmallest());
+    }
+
+    /**
      * Tests the method findLargest().
      */
     @Test
@@ -67,6 +76,15 @@ public class Project1Test
     }
 
     /**
+     * Testing to make sure the object is not null when running the findLargest() method.
+     */
+    @Test
+    public void testingFindLargestNotNull()
+    {
+        assertNotNull(runner.findLargest());
+    }
+
+    /**
      * Tests the method hasDuplicates().
      */
     @Test
@@ -74,6 +92,35 @@ public class Project1Test
     {
         boolean hasDuplicate = runner.hasDuplicates();
         assertTrue(hasDuplicate);
+    }
+
+    /**
+     * Testing to make sure the object is not null when running the hasDuplicates() method.
+     */
+    @Test
+    public void testingHasDuplicatesNotNull()
+    {
+        assertNotNull(runner.hasDuplicates());
+    }
+
+    /**
+     * Testing if the method hasDuplicates() will return false.
+     */
+    @Test
+    public void testingHasDuplicatesFalse()
+    {
+        ArrayList<Integer> testNumsNotDup = new ArrayList<Integer>();
+        testNumsNotDup.add(34567);
+        testNumsNotDup.add(2839);
+        testNumsNotDup.add(4567);
+        testNumsNotDup.add(98765);
+        testNumsNotDup.add(87);
+        testNumsNotDup.add(2);
+        testNumsNotDup.add(12345678);
+        testNumsNotDup.add(98);
+
+        runner = new Project1<Integer>(testNumsNotDup);
+        assertFalse(runner.hasDuplicates());
     }
 
     /**

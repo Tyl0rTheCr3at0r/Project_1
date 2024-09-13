@@ -55,10 +55,10 @@ public class Project1<E extends Comparable<E>>
         {
             return false;
         }
-        for(E item1 : collection)
+        for (int i = 0; i < collection.size(); i++)
         {
-            for (E item2 : collection) {
-                if (item1.compareTo(item2) == 0) {
+            for (int j = i + 1; j < collection.size(); j++) {
+                if (collection.get(i).compareTo(collection.get(j)) == 0) {
                     return true;
                 }
             }
