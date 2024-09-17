@@ -136,6 +136,18 @@ public class Project1Test
 
         assertEquals(9, item);
     }
+
+    /**
+     * Testing to make sure the object is not null when calling the findOneThat() method.
+     */
+    @Test
+    public void testingFindOneThatNotNull()
+    {
+        Predicate<Integer> p = i -> i != null;
+        Project1<Integer> specialRunner = (Project1<Integer>) runner;
+
+        assertNotNull(specialRunner.findOneThat(p));
+    }
     
     /**
      * Tests the method filterList().
@@ -144,7 +156,6 @@ public class Project1Test
     public void testingFilterList()
     {
         Predicate<Integer> p = i -> i % 2 == 0;
-
 
         Project1<Integer> specialRunner = (Project1<Integer>) runner;
 
@@ -157,6 +168,20 @@ public class Project1Test
 
         assertEquals(testNums, item);
     }
+    
+    /**
+     * Testing to make sure the object is not null when calling the filterList() method. 
+     */
+    @Test
+    public void testingFilterListNotNull()      
+    {
+        Predicate<Integer> p = i -> i != null;
+        Project1<Integer> specialRunner = (Project1<Integer>) runner;
+
+        assertNotNull(specialRunner.filterList(p));
+    }
+
+}
 
     
-}
+
