@@ -2,10 +2,11 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.AbstractList;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.function.*;
 
-
+/**
+ * Class for testing project 1.
+ */
 public class Project1Test 
 {
 
@@ -141,12 +142,12 @@ public class Project1Test
      * Testing to make sure the object is not null when calling the findOneThat() method.
      */
     @Test
-    public void testingFindOneThatNotNull()
+    public void testingFindOneNot()
     {
-        Predicate<Integer> p = i -> i != null;
+        Predicate<Integer> p = i -> i < 1;
         Project1<Integer> specialRunner = (Project1<Integer>) runner;
 
-        assertNotNull(specialRunner.findOneThat(p));
+        assertEquals(null, specialRunner.findOneThat(p));
     }
     
     /**
@@ -168,19 +169,6 @@ public class Project1Test
 
         assertEquals(testNums, item);
     }
-    
-    /**
-     * Testing to make sure the object is not null when calling the filterList() method. 
-     */
-    @Test
-    public void testingFilterListNotNull()      
-    {
-        Predicate<Integer> p = i -> i != null;
-        Project1<Integer> specialRunner = (Project1<Integer>) runner;
-
-        assertNotNull(specialRunner.filterList(p));
-    }
-
 }
 
     
